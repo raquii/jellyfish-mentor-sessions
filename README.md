@@ -1,5 +1,32 @@
 # Jellyfish CTD RoR Course
 
+## Week 3 - March 26 2025
+
+- Active Record Associations
+  - Types of Associations
+    - **One-to-Many** Relationship: `belongs_to` and `has_many`
+    - **One-to-One** Relationship: `belongs_to` and `has_one`
+      - Drivers License → Person
+    - **Many-to-Many** Relationship: `has_many :through` and `has_many`
+      - Using a *join* (aka *association*, aka *relational*) *table* to create a Many-to-Many relationship
+      - Teachers and Students, with a `students_teachers` join table
+      - Doctors and Patients (Appointments as the join table)
+    - [Polymorphic Relationships](https://guides.rubyonrails.org/association_basics.html#polymorphic-associations)
+  - Object Relational Mapper (ORM)
+    - ActiveRecord generates a lot of methods for us to interact with our objects without us having to define those methods
+- **Active Record Migrations**
+  - `bin/rails db:migrate`
+  - `bin/rails db:rollback`
+  - `bin/rails generate [migration | model | scaffold] ...`
+  - 
+- **Object Oriented Programming**
+  - Building Blocks of Object-Oriented Programming
+    - **Abstraction** - Take complex process and reduce it to a simple interface
+    - **Polymorphism** - Allowing objects to behave differently based on their context, allowing classes to be treated as objects of a common type.
+    - **Inheritance** - Child class can interit methods and properties from its parent
+    - **Encapsulation** - Restricting direct access to an objects properties (getters/setters) and bundling of data with the methods that operate on that data.
+  - Read more: [Introduction to Object Oriented Programming](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming)
+
 ## Week 2 - March 19 2025
 
 - `!` `?` Methods
