@@ -22,8 +22,6 @@
 
 ```mermaid
 erDiagram
-  direction RL
-  
   User {
     int id PK
     string name
