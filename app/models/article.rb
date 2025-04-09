@@ -1,7 +1,4 @@
 class Article < ApplicationRecord
   has_many :comments, as: :commentable
-
-  def print_article
-    "'#{title}' by #{author}: #{body}"
-  end
+  belongs_to :author, class_name: "User"
 end
