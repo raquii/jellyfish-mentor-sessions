@@ -12,4 +12,8 @@ class Post < ApplicationRecord
   def print_post
     "Title: #{title} By: #{author.name} Body: #{body}"
   end
+
+  def to_s
+    title
+  end
 end

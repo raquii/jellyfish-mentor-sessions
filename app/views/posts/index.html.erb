@@ -1,2 +1,19 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1 class="page-title">Posts</h1>
+
+<div class="posts-list">
+  <% if @posts.empty? %>
+    <h2>No posts to show!</h2>
+  <% else %>
+    <% @posts.each do |post| %>
+      <div class="post-card">
+        <h2 class="post-title"><%= post.title %></h2>
+        <div class="post-meta">
+          By: <%= post.author %> (<em><%= post.created_at.strftime("%B %d, %Y") %></em>)
+        </div>
+        <div class="post-body">
+          <%= truncate(post.body, length: 200) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
