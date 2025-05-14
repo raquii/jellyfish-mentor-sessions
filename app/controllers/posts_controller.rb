@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [ :show, :update, :destroy ]
+  before_action :find_post, only: [ :show, :update, :destroy, :edit ]
 
   # GET /posts
   def index
@@ -8,19 +8,24 @@ class PostsController < ApplicationController
 
   # GET /posts/:id
   def show
-    render json: @post
+  end
+
+  def new
+    @post = Post.new
   end
 
   # POST /posts
   def create
-    @post = current_user.posts.create(post_params)
-    render json: @post, status: :created
+    @post = current_user.posts.create!(post_params)
+  end
+
+  def edit
   end
 
   # PUT, PATCH /posts/:id
   def update
-    @post.update(post_params)
-    render json: @post
+    @post.update!(post_params)
+    redirect_to post_path(@post)
   end
 
   # DELETE /posts/:id

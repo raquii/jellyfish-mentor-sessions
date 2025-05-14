@@ -1,0 +1,26 @@
+<%= form_with model: @post, html: { class: "post-form" } do |form| %>
+  <% if @post.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from being saved:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-input" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.text_area :body, rows: 6, class: "form-input" %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit "Save Post", class: "form-submit" %>
+  </div>
+<% end %>
