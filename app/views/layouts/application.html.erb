@@ -20,9 +20,16 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= yield :head %>
   </head>
 
   <body>
-    <%= yield %>
+    <h1 id="site-title" class="page-title">Jellyfish Blogs</h1>
+    <main>
+      <turbo-frame id="flash">
+        <%= render 'shared/flash' %>
+      </turbo-frame>
+      <%= yield %>
+    </main>
   </body>
 </html>

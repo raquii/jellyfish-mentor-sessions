@@ -1,3 +1,6 @@
-<h1 class="page-title"><%= @post %></h1>
-<%= render partial: "post_card", locals: { post: @post } %>
-<%= link_to "Edit", edit_post_path(@post) %>
+<div class='nav'>
+    <%= link_to "Back", posts_path, class: 'button' %>
+</div>
+<div class="posts-list">
+    <%= render partial: "post_card", locals: { post: @post } %>
+</div>

@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(1)
   end
+
+  def render_flash
+    render turbo_stream: turbo_stream.update("flash", partial: "shared/flash")
+  end
 end

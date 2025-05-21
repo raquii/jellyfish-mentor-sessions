@@ -1,9 +1,13 @@
-<div class="post-card">
+<div class="post-card" data-url="<%= post_path(post) %>">
   <h2 class="post-title"><%= post.title %></h2>
   <div class="post-meta">
     By: <%= post.author %> (<em><%= post.created_at.strftime("%B %d, %Y") %></em>)
   </div>
   <div class="post-body">
     <%= truncate(post.body, length: 200) %>
+  </div>
+  <div class="post-actions">
+    <%= link_to "Edit", edit_post_path(post), class: 'button' %>
+    <%= link_to "Delete", post_path(post), data: { turbo_method: :delete }, class: 'button delete' %>
   </div>
 </div>

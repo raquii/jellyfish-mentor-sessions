@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: "User"
   validates :title, presence: true, length: { in: MIN_TITLE_LENGTH..MAX_TITLE_LENGTH }
   validates :body, presence: true, length: { in: MIN_BODY_LENGTH..MAX_BODY_LENGTH }
+  validate :title_is_not_my_dogs_name
 
   def print_post
     "Title: #{title} By: #{author.name} Body: #{body}"
@@ -15,5 +16,13 @@ class Post < ApplicationRecord
 
   def to_s
     title
+  end
+
+  def title_is_not_my_dogs_name
+    return if !title_changed?
+
+    if title == "Sombra"
+      errors.add(:title, "cannot be Sombra")
+    end
   end
 end

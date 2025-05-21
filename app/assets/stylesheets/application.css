@@ -12,15 +12,76 @@
 /* General Page Styling */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #eeeeee;
   color: #333;
   margin: 0;
   padding: 2rem;
 }
 
+.flash {
+  border: 1px solid #000000;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+
+.flash-error {
+  border: 1px solid #e3342f;
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.flash-success {
+  border: 1px solid #309143;
+  background-color: rgb(210, 255, 222);
+  color: #06300e;
+}
+
+.button {
+  background: #cce1ef;
+  border: 1px solid #97c0db;
+  border-radius: 4px;
+  color: #03426d;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #03426d;
+  color: #ffffff;
+}
+
+.button.delete {
+  background: #e1aaaa;
+  border-color: #640606;
+  color: #640606;
+}
+
+.button.delete:hover {
+  background: #640606;
+  color: #ffffff;
+}
+
+#site-title.page-title {
+  background: #cce1ef;
+  border-radius: 9px;
+  font-size: 2.5rem;
+  margin: 0 auto;
+  padding: 10px 10px 15px;
+  width: 800px;
+}
+
+main {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
 /* Page Title */
 .page-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
   color: #03426d;
@@ -59,6 +120,10 @@ body {
   font-size: 0.9rem;
   color: #777;
   margin-bottom: 1rem;
+}
+
+.post-actions {
+  margin: 15px 0;
 }
 
 /* Post Body Preview */
