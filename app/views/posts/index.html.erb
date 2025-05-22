@@ -12,4 +12,7 @@
       <%= render partial: "post_card", locals: { post: post } %>
     <% end %>
   <% end %>
+  <% if authenticated? %>
+    <div><%= link_to "Create", new_post_path, class: 'button' %></div>
+  <% end %>
 </div>

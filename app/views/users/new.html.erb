@@ -1,0 +1,37 @@
+<h2 class="page-title">Sign Up</h2>
+
+<div class="form-container">
+  <%= form_with model: @user, url: signup_path, local: true, class: "auth-form" do |f| %>
+     <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, required: true %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Create Account", class: "btn" %>
+    </div>
+  <% end %>
+
+  <% if @user.errors.any? %>
+    <ul class="error-messages">
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

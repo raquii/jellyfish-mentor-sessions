@@ -9,6 +9,12 @@
     <%= form.text_area :body, rows: 6, class: "form-input" %>
   </div>
 
+  <div class="form-group">
+    <%= form.label :visibility, class: "form-label" %>
+    <%= form.select :visibility, options_for_select([["Public", "visible"], ["Users Only", "limited"], ["Private", "hidden"]], selected: post&.visibility || "visible" ) %>
+  </div>
+
+
   <div class="form-actions">
     <%= form.submit "Save Post", class: "form-submit" %>
   </div>

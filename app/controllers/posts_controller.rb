@@ -1,11 +1,20 @@
 class PostsController < ApplicationController
+  skip_before_action :require_authentication, only: :index
   before_action :find_post, only: [ :show, :update, :destroy, :edit ]
 
   rescue_from ActiveRecord::RecordInvalid, with: :render_response_invalid
 
   # GET /posts
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = case
+    when current_user&.admin?
+      Post.all.recent
+    when current_user
+      Post.where(visibility: [ :visible, :limited ])
+          .or(Post.where(visibility: :hidden, author: current_user)).recent
+    else
+      Post.visible.recent
+    end
   end
 
   # GET /posts/:id
@@ -50,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :visibility)
   end
 
   def render_response_invalid(e)
