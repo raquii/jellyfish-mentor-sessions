@@ -63,5 +63,5 @@ group :test do
 end
 
 group :development, :test do
-  gem "rspec-rails", "~> 7.0.0"
+  gem "rspec-rails", "~> 8.0.0"
 end
