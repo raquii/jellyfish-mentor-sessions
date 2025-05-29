@@ -23,7 +23,7 @@ module Authentication
     end
 
     def resume_session
-      User.find_by(id: session[:user_id])
+      @current_user ||= User.find_by(id: session[:user_id])
     end
 
     alias_method :current_user, :resume_session

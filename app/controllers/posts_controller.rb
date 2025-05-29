@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :require_authentication, only: :index
   before_action :find_post, only: [ :show, :update, :destroy, :edit ]
+  before_action :authorize_post!, only: [ :edit, :update, :destroy ]
 
   rescue_from ActiveRecord::RecordInvalid, with: :render_response_invalid
 
@@ -64,5 +65,11 @@ class PostsController < ApplicationController
 
   def render_response_invalid(e)
     render json: { error: e.full_message }, status: :unprocessable_entity
+  end
+
+  def authorize_post!
+    unless current_user&.admin? || @post.author_id == current_user&.id
+      redirect_to root_path, alert: "You are not authorized to perform this action."
+    end
   end
 end

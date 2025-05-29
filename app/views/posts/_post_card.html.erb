@@ -6,8 +6,10 @@
   <div class="post-body">
     <%= truncate(post.body, length: 200) %>
   </div>
-  <div class="post-actions">
-    <%= link_to "Edit", edit_post_path(post), class: 'button' %>
-    <%= link_to "Delete", post_path(post), data: { turbo_method: :delete }, class: 'button delete' %>
-  </div>
+  <% if can_manage_post?(post)%>
+    <div class="post-actions">
+      <%= link_to "Edit", edit_post_path(post), class: 'button' %>
+      <%= link_to "Delete", post_path(post), data: { turbo_method: :delete }, class: 'button delete' %>
+    </div>
+  <% end %>
 </div>

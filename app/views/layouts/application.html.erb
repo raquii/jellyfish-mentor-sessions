@@ -28,7 +28,7 @@
       <nav class="navbar">
         <div class="navbar-brand">
           <% if @current_user %>
-            <div><h3>Welcome Back, <%= "#{@current_user.name}" %></h3></div>
+            <div><h3>Welcome Back, <%= "#{@current_user.name} (#{@current_user.role})" %></h3></div>
           <% end %>
         </div>
         <ul class="navbar-links">

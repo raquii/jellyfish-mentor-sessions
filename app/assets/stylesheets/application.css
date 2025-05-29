@@ -96,6 +96,7 @@ main {
 }
 
 /* Individual Post Card */
+.post-tools,
 .post-card {
   background-color: #fff;
   padding: 1.5rem;
@@ -301,4 +302,12 @@ main {
 /* Main Content Wrapper */
 .main-content {
   padding: 2rem;
+}
+
+.post-tools {
+  display: flex;
+  background: none;
+  box-shadow: none;
+  padding: 10px;
+  justify-content: flex-end;
 }
