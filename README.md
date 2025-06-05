@@ -13,3 +13,4 @@
 - [Week 10: Validations and Error Handling](lessons/week_10_validations_and_error_handling.md)
 - [Week 11: App Security: Authentication and Authorization](lessons/week_11_authentication_and_security.md)
 - [Week 12: Authorization and Role-Based Access Control](lessons/week_12_authorization.md)
+- [Week 13: Designing an API](lessons/week_13_designing_an_API.md)

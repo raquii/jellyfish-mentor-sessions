@@ -13,6 +13,10 @@ class Post < ApplicationRecord
 
   enum :visibility, { visible: 0, hidden: 1, limited: 2 }
 
+  def visible_to(user: nil)
+    author_id == user&.id || user&.admin? || visible?
+  end
+
   def print_post
     "Title: #{title} By: #{author.name} Body: #{body}"
   end

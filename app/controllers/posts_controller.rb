@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :require_authentication, only: :index
   before_action :find_post, only: [ :show, :update, :destroy, :edit ]
-  before_action :authorize_post!, only: [ :edit, :update, :destroy ]
+  before_action :authorize_post!, only: [ :show, :edit, :update, :destroy ]
 
   rescue_from ActiveRecord::RecordInvalid, with: :render_response_invalid
 
